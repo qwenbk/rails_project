@@ -40,11 +40,30 @@ class HospitalStayListsController < ApplicationController
   # PATCH/PUT /hospital_stay_lists/1
   # PATCH/PUT /hospital_stay_lists/1.json
   def update
+    #for ward start
     if ((params[:hospital_stay_list][:ward_id])!=(params[:hospital_stay_list][:ward_attributes][:id]))
-      params[:hospital_stay_list][:ward_attributes].clear
-      ward=Ward.find(params[:hospital_stay_list][:ward_id])
-      @hospital_stay_list.ward = ward
+      if (params[:hospital_stay_list][:ward_id].to_i > 0)
+        params[:hospital_stay_list][:ward_attributes].clear
+        ward=Ward.find(params[:hospital_stay_list][:ward_id])
+        @hospital_stay_list.ward = ward
+      else
+        @hospital_stay_list.build_ward
+      end
     end
+    #end
+
+    #for patient start
+    if ((params[:hospital_stay_list][:patient_id])!=(params[:hospital_stay_list][:ward_attributes][:id]))
+      if (params[:hospital_stay_list][:patient_id].to_i > 0)
+        params[:hospital_stay_list][:patient_attributes].clear
+        patient=Patient.find(params[:hospital_stay_list][:patient_id])
+        @hospital_stay_list.patient = patient
+      else
+        @hospital_stay_list.build_patient
+      end
+    end
+    #end
+
     respond_to do |format|
       if @hospital_stay_list.update(hospital_stay_list_params)
         format.html { redirect_to @hospital_stay_list, notice: 'Hospital stay list was successfully updated.' }
@@ -81,6 +100,6 @@ class HospitalStayListsController < ApplicationController
     def hospital_stay_list_params
       params.require(:hospital_stay_list).permit(:patient_id, :receipt_date, :reason, :discharge_date, :discharge_epicrisis, :ward_id,
       ward_attributes: [:id, :_destroy, :floor, :number, :departmen, :capacity],
-      patients_attributes: [:id, :_destroy, :second_name, :first_name, :last_name, :number, :number_polis, :is_platnik, :data_created, :index, :town, :street, :house, :corpus, :flat, :telefone, :issued_by, :seria, :nomer, :date_of_issue, :allergy])
+      patient_attributes: [:id, :_destroy, :second_name, :first_name, :last_name, :number, :number_polis, :is_platnik, :data_created, :index, :town, :street, :house, :corpus, :flat, :telefone, :issued_by, :seria, :nomer, :date_of_issue, :allergy])
     end
 end
