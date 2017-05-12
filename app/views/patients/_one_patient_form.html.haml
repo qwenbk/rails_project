@@ -1,0 +1,111 @@
+-# nested_start
+.col-md-6
+  %div{class: 'panel panel-success'}
+    .panel-heading
+      %a{"href" => "#hide-me1", "data-toggle" => "collapse"} Пациент (click)
+  #hide-me1.collapse
+    .panel-body
+      .row
+        .col-md-12
+          .form-group
+            = patient.label :second_name
+            = patient.text_field :second_name, class: 'form-control'
+            = patient.error_messages_for(:second_name)
+        .col-md-12
+          .form-group
+            = patient.label :first_name
+            = patient.text_field :first_name, class: 'form-control'
+            = patient.error_messages_for(:first_name)
+        .col-md-12
+          .form-group
+            = patient.label :last_name
+            = patient.text_field :last_name, class: 'form-control'
+        .col-md-12
+          .form-group
+            = patient.label :number
+            = patient.text_field :number, class: 'form-control'
+            = patient.error_messages_for(:number)
+        .col-md-12
+          .form-group
+            = patient.label :number_polis
+            = patient.text_field :number_polis, class: 'form-control'
+            = patient.error_messages_for(:number_polis)
+        .col-md-12
+          .form-group
+            = patient.label :is_platnik
+            = patient.check_box :is_platnik, class: 'form-control'
+            = patient.error_messages_for(:is_platnik)
+        .col-md-12
+          .form-group
+            = patient.label :data_created
+            .input-group.date.datepickert
+              = patient.text_field(:data_created, value: lnilT(patient.object.data_created),
+              class: 'form-control')
+              %span.input-group-addon
+                %span.glyphicon.glyphicon-calendar
+            = patient.error_messages_for(:data_created)
+        .col-md-12
+          .form-group
+            = patient.label :index
+            = patient.text_field :index, class: 'form-control'
+            = patient.error_messages_for(:index)
+        .col-md-12
+          .form-group
+            = patient.label :town
+            = patient.text_field :town, class: 'form-control'
+            = patient.error_messages_for(:town)
+        .col-md-12
+          .form-group
+            = patient.label :street
+            = patient.text_field :street, class: 'form-control'
+            = patient.error_messages_for(:street)
+        .col-md-12
+          .form-group
+            = patient.label :house
+            = patient.text_field :house, class: 'form-control'
+            = patient.error_messages_for(:house)
+        .col-md-12
+          .form-group
+            = patient.label :corpus
+            = patient.text_field :corpus, class: 'form-control'
+            = patient.error_messages_for(:corpus)
+        .col-md-12
+          .form-group
+            = patient.label :flat
+            = patient.text_field :flat, class: 'form-control'
+            = patient.error_messages_for(:flat)
+        .col-md-12
+          .form-group
+            = patient.label :telefone
+            = patient.text_field :telefone, class: 'form-control'
+            = patient.error_messages_for(:telefone)
+        .col-md-12
+          .form-group
+            = patient.label :issued_by
+            = patient.text_field :issued_by, class: 'form-control'
+            = patient.error_messages_for(:issued_by)
+        .col-md-12
+          .form-group
+            = patient.label :seria
+            = patient.text_field :seria, class: 'form-control'
+            = patient.error_messages_for(:seria)
+        .col-md-12
+          .form-group
+            = patient.label :nomer
+            = patient.text_field :nomer, class: 'form-control'
+            = patient.error_messages_for(:nomer)
+        .col-md-12
+          .form-group
+            = patient.label :date_of_issue
+            .input-group.date.datepicker
+              = patient.text_field(:date_of_issue, value: lnil(patient.object.date_of_issue),
+              class: 'form-control')
+              %span.input-group-addon
+                %span.glyphicon.glyphicon-calendar
+            = patient.error_messages_for(:date_of_issue)
+        .col-md-12
+          .form-group
+            = patient.label :allergy
+            = patient.text_area :allergy, class: 'form-control'
+            = patient.error_messages_for(:allergy)
+-# nested_end

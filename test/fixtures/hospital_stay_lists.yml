@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: 
+  receipt_date: 2017-04-21 20:30:31
+  reason: MyString
+  discharge_date: 2017-04-21 20:30:31
+  discharge_epicrisis: MyString
+  ward_id: 
+
+two:
+  patient_id: 
+  receipt_date: 2017-04-21 20:30:31
+  reason: MyString
+  discharge_date: 2017-04-21 20:30:31
+  discharge_epicrisis: MyString
+  ward_id: 

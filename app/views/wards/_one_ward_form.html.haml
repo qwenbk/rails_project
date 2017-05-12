@@ -1,0 +1,30 @@
+-# nested_start
+.col-md-6
+  %div{class: 'panel panel-success'}
+    .panel-heading
+      %a{"href" => "#hide-me", "data-toggle" => "collapse"} Палата (click)
+  #hide-me.collapse
+    .panel-body
+      .row
+        .col-md-12
+          .form-group
+            = ward.label :floor
+            = ward.number_field :floor, class: 'form-control'
+            = ward.error_messages_for(:floor)
+        .col-md-12
+          .form-group
+            = ward.label :number
+            = ward.text_field :number, class: 'form-control'
+            = ward.error_messages_for(:number)
+        .col-md-12
+          .form-group
+            = ward.label :departmen
+            = ward.text_field :departmen, class: 'form-control'
+            = ward.error_messages_for(:departmen)
+        .col-md-12
+          .form-group
+            = ward.label :capacity
+            = ward.number_field :capacity, class: 'form-control'
+            = ward.error_messages_for(:capacity)
+
+-# nested_end

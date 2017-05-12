@@ -1,0 +1,12 @@
+=breadcrumb_tag do
+  %li.active
+    = t('headers.hospital_stay_lists.edit')
+  %li
+    = link_to 'Полный список', hospital_stay_lists_path
+  %li
+    Больница
+
+.page-header
+  %h1= t('headers.wards.edit')
+
+= render 'form'

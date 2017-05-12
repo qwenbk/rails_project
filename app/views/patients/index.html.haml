@@ -1,0 +1,64 @@
+.page-header
+  %h1= t('headers.patients.index')
+
+.table-responsive
+  %table.table.table-hover.table-striped
+    %caption
+      = link_to new_patient_path, class: 'btn btn-success' do
+        = fa_icon :plus
+        = t('buttons.new.patients')
+    %thead
+      %tr
+        %th= Patient.human_attribute_name(:second_name)
+        %th= Patient.human_attribute_name(:first_name)
+        %th= Patient.human_attribute_name(:last_name)
+        %th= Patient.human_attribute_name(:number)
+        %th= Patient.human_attribute_name(:number_polis)
+        %th= Patient.human_attribute_name(:is_platnik)
+        %th= Patient.human_attribute_name(:data_created)
+        %th= Patient.human_attribute_name(:index)
+        %th= Patient.human_attribute_name(:town)
+        %th= Patient.human_attribute_name(:street)
+        %th= Patient.human_attribute_name(:house)
+        %th= Patient.human_attribute_name(:corpus)
+        %th= Patient.human_attribute_name(:flat)
+        %th= Patient.human_attribute_name(:issued_by)
+        %th= Patient.human_attribute_name(:telefone)
+        %th= Patient.human_attribute_name(:seria)
+        %th= Patient.human_attribute_name(:nomer)
+        %th= Patient.human_attribute_name(:date_of_issue)
+        %th= Patient.human_attribute_name(:allergy)
+
+    %tbody
+      - @patients.each do |patient|
+        %tr.center
+          %td= patient.second_name
+          %td= patient.first_name
+          %td= patient.last_name
+          %td= patient.number
+          %td= patient.number_polis
+          %td= patient.is_platnik
+          %td= patient.data_created
+          %td= patient.index
+          %td= patient.town
+          %td= patient.street
+          %td= patient.house
+          %td= patient.corpus
+          %td= patient.flat
+          %td= patient.issued_by
+          %td= patient.telefone
+          %td= patient.seria
+          %td= patient.nomer
+          %td= patient.date_of_issue
+          %td= patient.allergy
+          %td.mybox
+            = link_to patient, class: 'btn btn-warning' do
+              = fa_icon :eye
+              = t('buttons.show')
+            = link_to edit_patient_path(patient), class: 'btn btn-info' do
+              = fa_icon :edit
+              = t('buttons.edit')
+            = link_to patient, :method => :delete, :data => { :confirm => t('buttons.confirm.patient') },
+            class: 'btn btn-danger' do
+              = fa_icon :times
+              = t('buttons.destroy')

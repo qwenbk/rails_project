@@ -1,0 +1,63 @@
+%p#notice= notice
+
+%p
+  %b Second name:
+  = @patient.second_name
+%p
+  %b First name:
+  = @patient.first_name
+%p
+  %b Last name:
+  = @patient.last_name
+%p
+  %b Number:
+  = @patient.number
+%p
+  %b Number polis:
+  = @patient.number_polis
+%p
+  %b Is platnik:
+  = @patient.is_platnik
+%p
+  %b Data created:
+  = @patient.data_created
+%p
+  %b Index:
+  = @patient.index
+%p
+  %b Town:
+  = @patient.town
+%p
+  %b Street:
+  = @patient.street
+%p
+  %b House:
+  = @patient.house
+%p
+  %b Corpus:
+  = @patient.corpus
+%p
+  %b Flat:
+  = @patient.flat
+%p
+  %b Issued_by:
+  = @patient.issued_by
+%p
+  %b Telefone:
+  = @patient.telefone
+%p
+  %b Seria:
+  = @patient.seria
+%p
+  %b Nomer:
+  = @patient.nomer
+%p
+  %b Date of issue:
+  = @patient.date_of_issue
+%p
+  %b Allergy:
+  = @patient.allergy
+
+= link_to 'Edit', edit_patient_path(@patient)
+\|
+= link_to 'Back', patients_path

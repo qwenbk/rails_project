@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  second_name: MyString
+  first_name: MyString
+  last_name: MyString
+  number: MyString
+  number_polis: MyString
+  is_platnik: false
+  data_created: 2017-04-21 20:28:25
+  index: MyString
+  town: MyString
+  street: 
+  house: MyString
+  corpus: MyString
+  flat: MyString
+  telefone: 
+  seria: MyString
+  nomer: MyString
+  date_of_issue: 2017-04-21
+  allergy: MyText
+
+two:
+  second_name: MyString
+  first_name: MyString
+  last_name: MyString
+  number: MyString
+  number_polis: MyString
+  is_platnik: false
+  data_created: 2017-04-21 20:28:25
+  index: MyString
+  town: MyString
+  street: 
+  house: MyString
+  corpus: MyString
+  flat: MyString
+  telefone: 
+  seria: MyString
+  nomer: MyString
+  date_of_issue: 2017-04-21
+  allergy: MyText

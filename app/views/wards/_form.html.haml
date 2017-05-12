@@ -1,0 +1,41 @@
+= form_for @ward do |f|
+  = error_messages_for @ward
+  .form-actions
+    = f.submit nil, class: 'btn btn-primary'
+  %br
+  .row
+    .col-md-6
+      .form-group
+        = f.label :floor
+        = f.number_field :floor, class: 'form-control'
+        = f.error_messages_for(:floor)
+    .col-md-6
+      .form-group
+        = f.label :number
+        = f.text_field :number, class: 'form-control'
+        = f.error_messages_for(:number)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :departmen
+        = f.text_field :departmen, class: 'form-control'
+        = f.error_messages_for(:departmen)
+    .col-md-6
+      .form-group
+        = f.label :capacity
+        = f.number_field :capacity, class: 'form-control'
+        = f.error_messages_for(:capacity)
+
+    .row.bottom20
+      .col-md-12
+        -# Кнопка для добавления связи роль-пользователь. См. role_users_helper
+        = link_to_add_hsl(f, f.object)
+    - i = 1
+    = f.fields_for(:hospital_stay_lists) do |hsl|
+      -# Скрытое поле - id связи роль-пользователь. Иначе все связи будут
+      -# новыми
+      = hsl.hidden_field(:id)
+      -# Чтобы не повторять код, выделяем его часть в отдельный файл
+      = render('hospital_stay_lists/one_hsl_form', hsl: hsl, i: i)
+      - i = i+1
+    - # nested_finish

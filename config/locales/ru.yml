@@ -1,0 +1,119 @@
+ru:
+  app:
+    name: Базовое приложение
+    company:
+      short_name: МПУ
+      department: Кафедра
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+  buttons:
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    confirm:
+      user: Действительно удалить пользователя?
+      role: Действительно удалить роль?
+      ward: Действительно удалить палату?
+      patient: Действительно удалить пациента?
+      hospital_stay_list: Действительно удалить запись об амбулаторном прибывании?
+    new:
+      user: Новый пользователь
+      role: Новая роль
+      ward: Новая палата
+      hospital_stay_list: Новая запись
+  headers:
+    users:
+      edit: Редактирование пользователя
+      new: Новый пользователь
+      index: Список пользователей
+    roles:
+      index: Список возможных ролей пользователей
+      edit: Редактирование роли
+      new: Новая роль
+#доработать
+    patients:
+      index: Список пациентов
+      new-button: Новый пациент
+      edit: Редактирование пациента
+      new: Создание пациента
+    hospital_stay_lists:
+      index: Список амбулаторных прибываний
+      new-button: Новая запись
+      edit: Редактирование амбулаторного прибывания
+      new: Создание амбулаторного прибывания
+      show: Просмотр амбулаторного прибывания
+    wards:
+      index: Список палат
+      new-button: Новая палата
+      edit: Редактирование палаты
+      new: Создание палаты
+      show: Просмотр палаты
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+      patient: Пациент
+      ward: Палата
+      hospital_stay_list: Список амбулаторных прибываний
+    attributes:
+      user:
+        email: Пользовательское имя/электронная почта
+        birthday: Дата рождения
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        reset_password_email_sent_at: Дата отправления письма для смены пароля
+        activation_state: Статус активации
+        activation_token_expires_at: Дата прекращения действия токена активации
+        last_login_at: Время последнего входа в систему
+        role_users: Роли
+      role:
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      patient:
+        second_name: Фамилия
+        first_name: Имя
+        last_name: Отчество
+        number: Номер
+        number_polis: Номер полиса
+        is_platnik: Платник?
+        data_created: Дата поступления
+        index: Индекс
+        town: Город
+        street: Улица
+        house: Дом
+        corpus: Корпус
+        flat: Квартира
+        telefone: Телефон
+        issued_by: Кем выдан
+        seria: Серия
+        nomer: Номер
+        date_of_issue: Дата выдачи
+        allergy: Алергия
+      ward:
+        floor: Этаж
+        number: Палата
+        departmen: Отделение
+        capacity: Вместимость
+      hospital_stay_list:
+        patient_id: Пациент
+        receipt_date: Дата поступления
+        reason: Причина
+        discharge_date: Дата выписки
+        discharge_epicrisis: Выписной эпикриз
+        ward_id: Палата
+      role_user: &role_users
+        role: Роль
+        role_id: Роль
+        data: Параметры
+      user/role_users:
+        <<: *role_users

@@ -1,0 +1,48 @@
+=breadcrumb_tag do
+  %li.active
+    Палаты
+  %li
+    Больница
+
+.page-header
+  %h1= t('headers.wards.index')
+
+.table-responsive
+  %table.table.table-hover.table-striped.table-condensed
+    %caption
+      -if @current_role_user.present?
+        = link_to new_ward_path, class: 'btn btn-success' do
+          = fa_icon :plus
+          = t('buttons.new.ward')
+    %thead
+      %tr
+        %th= Ward.human_attribute_name(:floor)
+        %th= Ward.human_attribute_name(:number)
+        %th= Ward.human_attribute_name(:departmen)
+        %th= Ward.human_attribute_name(:capacity)
+
+
+    %tbody
+      - @wards.each do |ward|
+        %tr.center
+          %td= ward.floor
+          %td= ward.number
+          %td= ward.departmen
+          %td= ward.capacity
+          -if @current_role_user.present?
+            %td.mybox
+              = link_to ward, class: 'btn btn-warning' do
+                = fa_icon :eye
+                = t('buttons.show')
+              = link_to edit_ward_path(ward), class: 'btn btn-info' do
+                = fa_icon :edit
+                = t('buttons.edit')
+              = link_to ward, :method => :delete, :data => { :confirm => t('buttons.confirm.ward') },
+              class: 'btn btn-danger' do
+                = fa_icon :times
+                = t('buttons.destroy')
+          -else
+            %td
+              = link_to ward, class: 'btn btn-warning' do
+                = fa_icon :eye
+                = t('buttons.show')

@@ -1,0 +1,52 @@
+-# nested_start
+.col-md-6
+  %div{class: 'panel panel-'+ (i.kind_of?(Integer) ? 'success' : 'info')}
+    .panel-heading
+      Запись
+      = i
+      %span.toright
+        = link_to_remove_hsl(hsl)
+    .clearhslix
+      .panel-body
+        .row
+          .col-md-12
+            .form-group
+              = hsl.label :patient_id
+              = hsl.select :patient_id, Patient.all.map{|c| ["Фамилия- #{c.second_name} Паспорт- #{c.seria}#{c.nomer}", c.id]},
+              {:include_blank => 'Выбрать Пациента'}, {class: 'form-control'}
+              = hsl.error_messages_for(:patient_id)
+          .col-md-12
+            .form-group
+              = hsl.label :receipt_date
+              .input-group.date.datepickert
+                = hsl.text_field(:receipt_date, value: lnilT(hsl.object.receipt_date),
+                class: 'form-control')
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+              = hsl.error_messages_for(:receipt_date)
+          .col-md-12
+            .form-group
+              = hsl.label :reason
+              = hsl.text_field :reason, class: 'form-control'
+              = hsl.error_messages_for(:reason)
+          .col-md-12
+            .form-group
+              = hsl.label :discharge_date
+              .input-group.date.datepickert
+                = hsl.text_field(:discharge_date, value: lnilT(hsl.object.discharge_date),
+                class: 'form-control')
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+              = hsl.error_messages_for(:discharge_date)
+          .col-md-12
+            .form-group
+              = hsl.label :discharge_epicrisis
+              = hsl.text_field :discharge_epicrisis, class: 'form-control'
+              = hsl.error_messages_for(:discharge_epicrisis)
+          .col-md-12
+            .form-group
+              -# = hsl.select :ward_id, Ward.all.map{|c| ["Этаж #{c.hslloor},Палата №#{c.number}, Отделение #{c.departmen}", c.id]},
+              -# {:include_blank => 'Выбрать Палату'}, {class: 'form-control'}
+              = hsl.hidden_field :ward_id, value: @ward.id
+              = hsl.error_messages_for(:ward_id)
+-# nested_end
