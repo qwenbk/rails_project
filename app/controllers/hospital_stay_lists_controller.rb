@@ -24,8 +24,10 @@ class HospitalStayListsController < ApplicationController
   # POST /hospital_stay_lists
   # POST /hospital_stay_lists.json
   def create
+    if (params[:hospital_stay_list][:patient_id] != "")
+      params[:hospital_stay_list][:patient_attributes].clear
+    end
     @hospital_stay_list = HospitalStayList.new(hospital_stay_list_params)
-
     respond_to do |format|
       if @hospital_stay_list.save
         format.html { redirect_to @hospital_stay_list, notice: 'Hospital stay list was successfully created.' }
@@ -35,6 +37,7 @@ class HospitalStayListsController < ApplicationController
         format.json { render json: @hospital_stay_list.errors, status: :unprocessable_entity }
       end
     end
+    # raise params
   end
 
   # PATCH/PUT /hospital_stay_lists/1
@@ -51,9 +54,8 @@ class HospitalStayListsController < ApplicationController
       end
     end
     #end
-
     #for patient start
-    if ((params[:hospital_stay_list][:patient_id])!=(params[:hospital_stay_list][:ward_attributes][:id]))
+    if ((params[:hospital_stay_list][:patient_id])!=(params[:hospital_stay_list][:patient_attributes][:id]))
       if (params[:hospital_stay_list][:patient_id].to_i > 0)
         params[:hospital_stay_list][:patient_attributes].clear
         patient=Patient.find(params[:hospital_stay_list][:patient_id])

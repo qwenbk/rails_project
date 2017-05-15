@@ -7,6 +7,7 @@
     .col-md-6
       .form-group
         = f.label :patient_id
+        \/ оставить пустым для создания нового
         = f.select :patient_id, Patient.all.map{|c| ["Фамилия- #{c.second_name} Паспорт- #{c.seria}#{c.nomer}", c.id]},
         {:include_blank => 'Выбрать Пациента'}, {class: 'form-control'}
         = f.error_messages_for(:patient_id)
@@ -43,6 +44,7 @@
     .col-md-6
       .form-group
         = f.label :ward_id
+        \/ оставить пустой для создания новой
         = f.select :ward_id, Ward.all.map{|c| ["Этаж #{c.floor},Палата №#{c.number}, Отделение #{c.departmen}", c.id]},
         {:include_blank => 'Выбрать Палату'}, {class: 'form-control'}
         = f.error_messages_for(:ward_id)
@@ -52,11 +54,9 @@
   - if !@hospital_stay_list.patient
     - @hospital_stay_list.build_patient
   = f.fields_for (:patient) do |patient|
-    = patient.hidden_field(:id)
     = render('patients/one_patient_form', patient: patient)
 
   - if !@hospital_stay_list.ward
     - @hospital_stay_list.build_ward
   = f.fields_for (:ward) do |ward|
-    = ward.hidden_field(:id)
     = render('wards/one_ward_form', ward: ward)
