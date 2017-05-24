@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :hospital_stay_lists
   resources :wards
-  resources :patients
+  resources :patients  do
+    collection do
+      get :search
+    end
+  end
   resources :role_users
   resources :roles
   resources :password_resets

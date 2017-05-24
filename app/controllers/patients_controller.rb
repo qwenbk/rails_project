@@ -3,6 +3,15 @@ class PatientsController < ApplicationController
 
   # GET /patients
   # GET /patients.json
+  def search
+    if params.has_key?('search')
+      @patients=Patient.search(params['search'])
+    else
+      @patients=Patient.all
+    end
+    params['search'] ||= {}
+  end
+
   def index
     @patients = Patient.all
   end
@@ -65,6 +74,11 @@ class PatientsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_patient
       @patient = Patient.find(params[:id])
+    end
+
+    def check_ctr_auth()
+      return true if (action_name.to_sym == :search)
+      return @current_role_user.present?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

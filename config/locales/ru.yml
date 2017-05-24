@@ -1,4 +1,12 @@
 ru:
+  patients:
+    search:
+      find: Найдено пациентов
+      patient: Данные о пациентах
+      ward: Данные о палатах
+      hospital_stay_list: Данные об амбулаторных прибываниях
+      from: c
+      to: по
   app:
     name: Базовое приложение
     company:
@@ -33,12 +41,12 @@ ru:
       index: Список возможных ролей пользователей
       edit: Редактирование роли
       new: Новая роль
-#доработать
     patients:
       index: Список пациентов
       new-button: Новый пациент
       edit: Редактирование пациента
       new: Создание пациента
+      search: Поиск по пациентам
     hospital_stay_lists:
       index: Список амбулаторных прибываний
       new-button: Новая запись
@@ -95,13 +103,13 @@ ru:
         flat: Квартира
         telefone: Телефон
         issued_by: Кем выдан
-        seria: Серия
-        nomer: Номер
+        seria: Серия паспорта
+        nomer: Номер паспорта
         date_of_issue: Дата выдачи
         allergy: Алергия
       ward:
         floor: Этаж
-        number: Палата
+        number: Номер палаты
         departmen: Отделение
         capacity: Вместимость
       hospital_stay_list:

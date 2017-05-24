@@ -1,5 +1,20 @@
 %aside.hidden-print#sidebar-wrapper
   %ul.sidebar-nav
+    %nav
+      %li.head
+        = link_to root_path do
+          = image_tag 'logo.png', alt: t('app.company.short_name')
+          = t('app.name')
+      %li.next
+        = link_to login_path do
+          = @current_user.blank? ? 'войти' : @current_user.email
+        - if @current_user.blank?
+          = link_to login_path do
+            = fa_icon 'sign-in'
+        - else
+          = link_to logout_path do
+            = fa_icon 'sign-out'
+
     - side_bar_items(@current_role_user).each do |item|
       %li
         - if item.has_key?(:children)
@@ -20,7 +35,7 @@
                     = fa_icon(subitem[:icon], class: 'menu-icon')
                     = subitem[:name]
         - else
-          = link_to(url_for(controller: item[:controller], action: item[:action]), class: item[:class]) do
+          = link_to(url_for(controller: item[:controller], action: item[:action]), class: 'with-subitems') do
             = fa_icon(item[:icon], class: 'menu-icon')
             = item[:name]
     %li.footer

@@ -1,0 +1,250 @@
+
+= form_tag search_patients_path(), method: :get do
+  %h1= t('headers.patients.search')
+
+  .col-md-12
+    %div{class: 'panel panel-success'}
+      .panel-heading
+        %a{"href" => "#hide-me1", "data-toggle" => "collapse"}
+          = t('.patient')
+          (click)
+    #hide-me1.collapse
+      .panel-body
+        .row
+          .col-md-3
+            .form-group
+              = label_tag "search[second_name]", t('activerecord.attributes.patient.second_name')
+              = text_field_tag 'search[second_name]',params['search']['second_name'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[first_name]", t('activerecord.attributes.patient.first_name')
+              = text_field_tag 'search[first_name]',params['search']['first_name'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[last_name]", t('activerecord.attributes.patient.last_name')
+              = text_field_tag 'search[last_name]',params['search']['last_name'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[number]", t('activerecord.attributes.patient.number')
+              = text_field_tag 'search[number]',params['search']['number'], {class: 'form-control'}
+        .row
+          .col-md-3
+            .form-group
+              = label_tag "search[number_polis]", t('activerecord.attributes.patient.number_polis')
+              = text_field_tag 'search[number_polis]',params['search']['number_polis'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[is_platnik]", t('activerecord.attributes.patient.is_platnik')
+              %br
+              = select_tag('search[is_platnik]', options_for_select([["Да","true"],["Нет","false"]], params['search']['is_platnik']),{:include_blank => 'Неважно'})
+          .col-md-3
+            .form-group
+              = label_tag "search[data_created_from]", t('activerecord.attributes.patient.data_created') + " " +t('.from')
+              .input-group.date.datepickert
+                = text_field_tag "search[data_created_from]", params['search']['data_created_from'], {class: 'form-control'}
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+          .col-md-3
+            .form-group
+              = label_tag "search[data_created_to]", " - " +t('.to')
+              .input-group.date.datepickert
+                = text_field_tag "search[data_created_to]", params['search']['data_created_to'], {class: 'form-control'}
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+        .row
+          .col-md-3
+            .form-group
+              = label_tag "search[index]", t('activerecord.attributes.patient.index')
+              = text_field_tag 'search[index]',params['search']['index'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[town]", t('activerecord.attributes.patient.town')
+              = text_field_tag 'search[town]',params['search']['town'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[street]", t('activerecord.attributes.patient.street')
+              = text_field_tag 'search[street]',params['search']['street'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[house]", t('activerecord.attributes.patient.house')
+              = text_field_tag 'search[house]',params['search']['house'], {class: 'form-control'}
+        .row
+          .col-md-3
+            .form-group
+              = label_tag "search[corpus]", t('activerecord.attributes.patient.corpus')
+              = text_field_tag 'search[corpus]',params['search']['corpus'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[flat]", t('activerecord.attributes.patient.flat')
+              = text_field_tag 'search[flat]',params['search']['flat'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[telefone]", t('activerecord.attributes.patient.telefone')
+              = text_field_tag 'search[telefone]',params['search']['telefone'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[issued_by]", t('activerecord.attributes.patient.issued_by')
+              = text_field_tag 'search[issued_by]',params['search']['issued_by'], {class: 'form-control'}
+        .row
+          .col-md-3
+            .form-group
+              = label_tag "search[seria]", t('activerecord.attributes.patient.seria')
+              = text_field_tag 'search[seria]',params['search']['seria'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[nomer]", t('activerecord.attributes.patient.nomer')
+              = text_field_tag 'search[nomer]',params['search']['nomer'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[date_of_issue_from]", t('activerecord.attributes.patient.date_of_issue') + " " +t('.from')
+              .input-group.date.datepickert
+                = text_field_tag "search[date_of_issue_from]", params['search']['date_of_issue_from'], {class: 'form-control'}
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+          .col-md-3
+            .form-group
+              = label_tag "search[date_of_issue_to]", " - " +t('.to')
+              .input-group.date.datepickert
+                = text_field_tag "search[date_of_issue_to]", params['search']['date_of_issue_to'], {class: 'form-control'}
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+        .row
+          .col-md-3
+            .form-group
+              = label_tag "search[allergy]", t('activerecord.attributes.patient.allergy')
+              = text_field_tag 'search[allergy]',params['search']['allergy'], {class: 'form-control'}
+
+
+  .col-md-12
+    %div{class: 'panel panel-success'}
+      .panel-heading
+        %a{"href" => "#hide-me2", "data-toggle" => "collapse"}
+          = t('.hospital_stay_list')
+          (click)
+    #hide-me2.collapse
+      .panel-body
+        .row
+          .col-md-3
+            .form-group
+              = label_tag "search[receipt_date_from]", t('activerecord.attributes.hospital_stay_list.receipt_date') + " " +t('.from')
+              .input-group.date.datepickert
+                = text_field_tag "search[receipt_date_from]", params['search']['receipt_date_from'], {class: 'form-control'}
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+          .col-md-3
+            .form-group
+              = label_tag "search[receipt_date_to]", " - " +t('.to')
+              .input-group.date.datepickert
+                = text_field_tag "search[receipt_date_to]", params['search']['receipt_date_to'], {class: 'form-control'}
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+          .col-md-3
+            .form-group
+              = label_tag "search[reason]", t('activerecord.attributes.hospital_stay_list.reason')
+              = text_field_tag 'search[reason]',params['search']['reason'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[discharge_epicrisis]", t('activerecord.attributes.hospital_stay_list.discharge_epicrisis')
+              = text_field_tag 'search[discharge_epicrisis]',params['search']['discharge_epicrisis'], {class: 'form-control'}
+        .row
+          .col-md-3
+            .form-group
+              = label_tag "search[discharge_date_from]", t('activerecord.attributes.hospital_stay_list.discharge_date') + " " +t('.from')
+              .input-group.date.datepickert
+                = text_field_tag "search[discharge_date_from]", params['search']['discharge_date_from'], {class: 'form-control'}
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+          .col-md-3
+            .form-group
+              = label_tag "search[discharge_date_todischarge_date_to]", " - " +t('.to')
+              .input-group.date.datepickert
+                = text_field_tag "search[discharge_date_to]", params['search']['discharge_date_to'], {class: 'form-control'}
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+
+
+  .col-md-12
+    %div{class: 'panel panel-success'}
+      .panel-heading
+        %a{"href" => "#hide-me3", "data-toggle" => "collapse"}
+          = t('.ward')
+          (click)
+    #hide-me3.collapse
+      .panel-body
+        .row
+          .col-md-3
+            .form-group
+              = label_tag "search[floor]", t('activerecord.attributes.ward.floor')
+              = text_field_tag 'search[floor]',params['search']['floor'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[number1]", t('activerecord.attributes.ward.number')
+              = text_field_tag 'search[number1]',params['search']['number1'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[departmen]", t('activerecord.attributes.ward.departmen')
+              = text_field_tag 'search[departmen]',params['search']['departmen'], {class: 'form-control'}
+          .col-md-3
+            .form-group
+              = label_tag "search[capacity]", t('activerecord.attributes.ward.capacity')
+              = text_field_tag 'search[capacity]',params['search']['capacity'], {class: 'form-control'}
+
+
+  = submit_tag(:search_button, class: 'btn btn-primary', value: 'Запустить поиск!')
+%h3= t('patients.search.find') + " : "  + @patients.size.to_s
+.row
+  .col-md-12
+    - @patients.each_with_index do |patient, index|
+      .col-md-4
+        .form-group
+          %h3
+            Пациент №
+            = index + 1
+          %dl
+            %dt= Patient.human_attribute_name(:second_name)
+            %dd= patient.second_name
+            %dt= Patient.human_attribute_name(:first_name)
+            %dd= patient.first_name
+            %dt= Patient.human_attribute_name(:last_name)
+            %dd= patient.last_name
+            %dt= Patient.human_attribute_name(:number)
+            %dd= patient.number
+            %dt= Patient.human_attribute_name(:number_polis)
+            %dd= patient.number_polis
+            %dt= Patient.human_attribute_name(:is_platnik)
+            %dd= patient.is_platnik
+            %dt= Patient.human_attribute_name(:data_created)
+            %dd= patient.data_created
+            %dt= Patient.human_attribute_name(:index)
+            %dd= patient.index
+            %dt= Patient.human_attribute_name(:town)
+            %dd= patient.town
+            %dt= Patient.human_attribute_name(:street)
+            %dd= patient.street
+            %dt= Patient.human_attribute_name(:house)
+            %dd= patient.house
+            %dt= Patient.human_attribute_name(:corpus)
+            %dd= patient.corpus
+            %dt= Patient.human_attribute_name(:flat)
+            %dd= patient.flat
+            %dt= Patient.human_attribute_name(:telefone)
+            %dd= patient.telefone
+            %dt= Patient.human_attribute_name(:issued_by)
+            %dd= patient.issued_by
+            %dt= Patient.human_attribute_name(:seria)
+            %dd= patient.seria
+            %dt= Patient.human_attribute_name(:nomer)
+            %dd= patient.nomer
+            %dt= Patient.human_attribute_name(:date_of_issue)
+            %dd= patient.date_of_issue
+            %dt= Patient.human_attribute_name(:allergy)
+            %dd= patient.allergy
+
+            - if @current_role_user.present? and @current_role_user.is_admin?
+              = link_to edit_patient_path(patient), class: 'btn btn-info' do
+                = fa_icon :edit
+                = t('buttons.edit')
+              = link_to patient, :method => :delete, :data => { :confirm => t('buttons.confirm.patient') },
+              class: 'btn btn-danger' do
+                = fa_icon :times
+                = t('buttons.destroy')
